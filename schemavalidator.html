@@ -12,13 +12,6 @@
 	</textarea>
     <script type="text/javascript" defer>
 window.name = "JsonSchemaValidator";
-console.log("loading");
-if (window.opener) {
-	console.log("sending to opener");
-	window.opener.postMessage('ready', 'https://coderextreme.github.io');
-	console.log("done posting");
-}
-
 console.log("adding event listener");
 
 window.addEventListener('message', (event) => {
@@ -47,6 +40,13 @@ window.addEventListener('message', (event) => {
   console.log("confirm");
 });
 console.log("done adding listeners");
+console.log("loading");
+if (window.opener) {
+	console.log("sending to opener");
+	window.opener.postMessage('ready', 'https://coderextreme.github.io');
+	console.log("done posting");
+}
+
     </script>
 </body>
 </html>
