@@ -28,7 +28,7 @@ function openAndFill(link) {
     	      return response.json();
         })
         .then(schema => {
-      i		fetch(window.location.href+"/"+link)
+      i		fetch(link)
 		.then(response => {
 		      return response.json();
 		})
