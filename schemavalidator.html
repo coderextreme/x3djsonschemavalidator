@@ -43,6 +43,8 @@ window.addEventListener('message', (event) => {
     console.log("dispatched2");
   }
   console.log("done adding event listener");
+  event.source.postMessage('ready', 'https://coderextreme.github.io');
+  console.log("confirm");
 });
 console.log("done adding listeners");
     </script>
