@@ -7,8 +7,11 @@
     <script type="text/typescript">
 window.name = "JsonSchemaValidator";
 window.addEventListener('load', () => {
+  console.log("loading");
   if (window.opener) {
+    console.log("sending to opener");
     window.opener.postMessage('ready', 'https://coderextreme.github.io');
+    console.log("done posting");
   }
 });
 
