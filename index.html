@@ -6,17 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script type="text/javascript">
 function openAndFill() {
+  console.log("Opening");
   const win = window.open('https://coderextreme.net/x3djsonschemavalidator/schemavalidator.html', '_blank');
   window.addEventListener('message', (event) => {
+    console.log("Adding event listener", event.origin);
     if (event.origin !== 'https://coderextreme.net') return;
+    console.log("Origin checks", event.data);
 
     if (event.data === 'ready') {
+      console.log("Posting");
       win.postMessage(
         { textarea1: 'first content here', textarea2: 'second content here' },
-        'https://www.coderextreme.net'
+        'https://www.coderextreme.net/x3djsonschemavalidator/schemavalidator.html'
       );
+      console.log("Posted");
     }
+    console.log("Done with event");
   });
+  console.log("Done opening");
 }
 </script>
 </head>
