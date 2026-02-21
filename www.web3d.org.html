@@ -7,7 +7,7 @@
     <script type="text/javascript">
 function openAndFill() {
   console.log("Opening");
-  const win = window.open('https://coderextreme.net/x3djsonschemavalidator/schemavalidator.html', '_blank');
+  const win = window.open('https://coderextreme.net/x3djsonschemavalidator/schemavalidator.html',  'JsonSchemaValidator');
   window.addEventListener('message', (event) => {
     console.log("Adding event listener", event.origin);
     if (event.origin !== 'https://coderextreme.net') return;
