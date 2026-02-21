@@ -12,11 +12,10 @@
 	</textarea>
     <script type="module" defer>
 import selectObjectFromJson from './selectObjectFromJson.js';
-import { registerSchema, validate } from "./node_modules/@hyperjump/json-schema/draft-2020-12";
-import { BASIC } from "./node_modules/@hyperjump/json-schema/experimental";
+import { registerSchema, validate } from "./node_modules/@hyperjump/json-schema/draft-2020-12/index.js";
 
 export default async function validateJSON(json, schemaUri, schemajson) {
-    await validate(schemaUri, json, BASIC)
+    await validate(schemaUri, json)
 	.then(response => {
 		if (response.valid) {
 			alert("Success validating JSON");
