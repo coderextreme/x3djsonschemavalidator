@@ -113,7 +113,7 @@ window.addEventListener('message', (event) => {
     console.log("dispatched2");
   }
   parseAndValidate();
-});
+}, { once: true });
 console.log("done adding listeners");
 window.addEventListener('load', (event) => {
 	if (window.opener) {
@@ -121,7 +121,7 @@ window.addEventListener('load', (event) => {
 		window.opener.postMessage('ready', 'https://coderextreme.github.io');
 		console.log("done posting");
 	}
-});
+}, { once: true });
 
     </script>
 </body>
