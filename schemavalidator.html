@@ -12,20 +12,27 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('message', (event) => {
+  console.log("confirming origin");
   if (event.origin !== 'https://coderextreme.github.io') return;
 
   const { textarea1, textarea2 } = event.data;
+  console.log("received data", textarea1, textarea2);
   const textareas = document.querySelectorAll('textarea');
 
   if (textarea1 && textareas[0]) {
     textareas[0].value = textarea1;
+    console.log("dispatching1");
     textareas[0].dispatchEvent(new Event('input', { bubbles: true }));
+    console.log("dispatched1");
   }
 
   if (textarea2 && textareas[1]) {
     textareas[1].value = textarea2;
+    console.log("dispatching2");
     textareas[1].dispatchEvent(new Event('input', { bubbles: true }));
+    console.log("dispatched2");
   }
+  console.log("done adding event listener");
 });
     </script>
 </head>
