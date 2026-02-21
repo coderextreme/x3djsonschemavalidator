@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-    <script type="text/javascript">
+<script type="text/javascript">
 function openAndFill(link) {
-  console.log("Opening");
-  const win = window.open('https://coderextreme.net/x3djsonschemavalidator/schemavalidator.html',  'JsonSchemaValidator');
+  	console.log("Opening");
+	const win = window.open('https://coderextreme.net/x3djsonschemavalidator/schemavalidator.html',  'JsonSchemaValidator');
   window.addEventListener('message', (event) => {
     console.log("Adding event listener", event.origin);
     if (event.origin !== 'https://coderextreme.net') return;
@@ -28,11 +28,11 @@ function openAndFill(link) {
 		})
 		.then(data => {
 			console.log(schema);
-			win.postMessage( { textarea1: schema, textarea2: data, 'https://coderextreme.net/');
+			win.postMessage( { textarea1: schema, textarea2: data } , 'https://coderextreme.net/');
 			console.log("Posted");
 		});
-});
-}
+	});
+    }
     console.log("Done with event");
   });
   console.log("Done opening");
