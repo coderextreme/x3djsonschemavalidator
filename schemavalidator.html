@@ -60,7 +60,7 @@ export default async function validateJSON(json, schemaUri, schemajson) {
 					let instancePath = error.instanceLocation.substr(error.instanceLocation.lastIndexOf("#")+2).replaceAll("/", " > ");
 					errors.push("instance location:", instancePath)
 					let instanceSelectedObject = selectObjectFromJson(json, instancePath);
-					errors.push("instancd value:", JSON.stringify(instanceSelectedObject));
+					errors.push("instance value:", JSON.stringify(instanceSelectedObject));
 					errors.push( "instance shorthand value:", JSON.stringify(instanceSelectedObject,
 						function(k, v) {
 						    let v2 = JSON.parse(JSON.stringify(v));
