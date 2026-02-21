@@ -12,8 +12,8 @@
 	</textarea>
     <script type="module" defer>
 import selectObjectFromJson from './selectObjectFromJson.js';
-import { registerSchema, validate } from "@hyperjump/json-schema/draft-2020-12";
-import { BASIC } from "@hyperjump/json-schema/experimental";
+import { registerSchema, validate } from "./node_modules/@hyperjump/json-schema/draft-2020-12";
+import { BASIC } from "./node_modules/@hyperjump/json-schema/experimental";
 
 export default async function validateJSON(json, schemaUri, schemajson) {
     await validate(schemaUri, json, BASIC)
