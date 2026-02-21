@@ -21,12 +21,13 @@ function openAndFill() {
       console.log("Posting");
       fetch("https://coderextreme.github.io/x3djsonschemavalidator/schemas/x3d-4.1-JSONSchema.json")
 	.then(response => {
-	      win.postMessage(
-		      { textarea1: response.json(), textarea2: { "X3D": {}} },
-		'https://coderextreme.net/'
-	      );
-      });
-      console.log("Posted");
+    	      return response.json();
+        })
+        .then(data => {
+        	console.log(data);
+		win.postMessage( { textarea1: data, textarea2: { "X3D": {}} }, 'https://coderextreme.net/'
+      		console.log("Posted");
+        })
     }
     console.log("Done with event");
   });
