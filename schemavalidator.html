@@ -10,10 +10,15 @@
 	</textarea>
 	<textarea id="textarea2">
 	</textarea>
-	<script type="module" src="/node_modules/@hyperjump/json-schema/draft-2020-12/index.js"></script>
+	<script type="importmap">
+		{ "imports": {
+			"@hyperjump/uri": "https://cdn.jsdelivr.net/npm/@hyperjump/uri/dist/index.js",
+			"@hyperjump/json-schema/draft-2020-12": "https://cdn.jsdelivr.net/npm/@hyperjump/json-schema/draft-2020-12/index.js"
+		} }
+	</script>
     <script type="module" defer>
 import selectObjectFromJson from './selectObjectFromJson.js';
-import { registerSchema, validate } from "";
+import { registerSchema, validate } from "@hyperjump/json-schema/draft-2020-12";
 
 export default async function validateJSON(json, schemaUri, schemajson) {
     await validate(schemaUri, json)
