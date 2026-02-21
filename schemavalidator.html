@@ -11,10 +11,12 @@
 	<textarea id="textarea2">
 	</textarea>
 	<script type="importmap">
-		{ "imports": {
-			"@hyperjump/uri": "https://cdn.jsdelivr.net/npm/@hyperjump/uri/dist/index.js",
-			"@hyperjump/json-schema/draft-2020-12": "https://cdn.jsdelivr.net/npm/@hyperjump/json-schema/draft-2020-12/index.js"
-		} }
+		{
+		  "imports": {
+		    "@hyperjump/json-schema/": "https://esm.sh/@hyperjump/json-schema@1.12.1/",
+		    "@hyperjump/browser/":     "https://esm.sh/@hyperjump/browser@1.0.3/"
+		  }
+		}
 	</script>
     <script type="module" defer>
 import selectObjectFromJson from './selectObjectFromJson.js';

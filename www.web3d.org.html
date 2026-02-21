@@ -19,7 +19,7 @@ function openAndFill() {
 
     if (event.data === 'ready') {
       console.log("Posting");
-      fetch("https://coderextreme.github.io.x3djsonschemavalidator/schemas/x3d-4.1-JSONSchema.json")
+      fetch("https://coderextreme.github.io/x3djsonschemavalidator/schemas/x3d-4.1-JSONSchema.json")
 	.then(response => {
 	      win.postMessage(
 		      { textarea1: response.json(), textarea2: { "X3D": {}} },
