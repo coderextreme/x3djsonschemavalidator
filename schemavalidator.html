@@ -80,11 +80,11 @@ export default async function validateJSON(json, schemaUri, schemajson) {
 }
 
 export async function parseAndValidate() {
-	let schema = JSON.parse(document.querySelector("#textarea1"));
+	let schema = JSON.parse(document.querySelector("#textarea1").value);
 	let schemajson = JSON.parse(schema);
 	registerSchema(schemajson, schemaUri);
 	console.log("Schema 4.1 registered");
-	validateJSON(JSON.parse(document.querySelector("#textarea2")), schemaUri, schemajson);
+	validateJSON(JSON.parse(document.querySelector("#textarea2").value), schemaUri, schemajson);
 }
 
 window.name = "JsonSchemaValidator";
