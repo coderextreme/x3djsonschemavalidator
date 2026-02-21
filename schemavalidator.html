@@ -82,6 +82,7 @@ export default async function validateJSON(json, schemaUri, schemajson) {
 }
 
 export async function parseAndValidate() {
+	let schemaUri = "https://coderextreme.github.io/x3djsonschemavalidator/schemas/x3d-4.1-JSONSchema.json";
 	let schemajson = JSON.parse(document.querySelector("#textarea1").value);
 	let json = JSON.parse(document.querySelector("#textarea2").value);
 	validateJSON(json, schemaUri, schemajson);
