@@ -40,11 +40,12 @@ window.addEventListener('message', (event) => {
   console.log("confirm");
 });
 console.log("done adding listeners");
-console.log("loading");
-if (window.opener) {
-	console.log("sending to opener");
-	window.opener.postMessage('ready', 'https://coderextreme.github.io');
-	console.log("done posting");
+window.addEventListener('load', (event) => {
+	if (window.opener) {
+		console.log("sending to opener");
+		window.opener.postMessage('ready', 'https://coderextreme.github.io');
+		console.log("done posting");
+	}
 }
 
     </script>
