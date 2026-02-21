@@ -99,14 +99,14 @@ window.addEventListener('message', (event) => {
   const textareas = document.querySelectorAll('textarea');
 
   if (textarea1 && textareas[0]) {
-    textareas[0].value = textarea1;
+    textareas[0].value = JSON.stringify(textarea1);
     console.log("dispatching1");
     textareas[0].dispatchEvent(new Event('input', { bubbles: true }));
     console.log("dispatched1");
   }
 
   if (textarea2 && textareas[1]) {
-    textareas[1].value = textarea2;
+    textareas[1].value = JSON.stringify(textarea2);
     console.log("dispatching2");
     textareas[1].dispatchEvent(new Event('input', { bubbles: true }));
     console.log("dispatched2");
