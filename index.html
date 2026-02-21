@@ -25,9 +25,9 @@ function openAndFill() {
         })
         .then(data => {
         	console.log(data);
-		win.postMessage( { textarea1: data, textarea2: { "X3D": {}} }, 'https://coderextreme.net/'
+		win.postMessage( { textarea1: data, textarea2: { "X3D": {}} }, 'https://coderextreme.net/');
       		console.log("Posted");
-        })
+        });
     }
     console.log("Done with event");
   });
