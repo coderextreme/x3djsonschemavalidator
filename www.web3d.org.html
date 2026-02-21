@@ -19,10 +19,13 @@ function openAndFill() {
 
     if (event.data === 'ready') {
       console.log("Posting");
-      win.postMessage(
-        { textarea1: 'first content here', textarea2: 'second content here' },
-        'https://coderextreme.net/'
-      );
+      fetch("https://coderextreme.github.io.x3djsonschemavalidator/schemas/x3d-4.1-JSONSchema.json")
+	.then(response => {
+	      win.postMessage(
+		      { textarea1: response.json(), textarea2: { "X3D": {}} },
+		'https://coderextreme.net/'
+	      );
+      });
       console.log("Posted");
     }
     console.log("Done with event");
