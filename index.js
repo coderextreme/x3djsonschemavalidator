@@ -62,7 +62,7 @@ export default async function validateJSON(json, schemaUri, schemajson) {
 	});
 }
 
-async function parseAndValidate() {
+export async function parseAndValidate() {
 	let schema = JSON.parse(docuument.querySelector("#textarea1"));
 	let schemajson = JSON.parse(schema);
 	registerSchema(schemajson, schemaUri);
