@@ -34,6 +34,7 @@ export default async function validateJSON(json, schemaUri, schemajson) {
 			alert("Success validating JSON");
 		} else {
 			alert("Error invalid JSON ");
+			/*
 			let errors = [];
 			for (let e in response.errors) {
 				let error = response.errors[e];
@@ -78,7 +79,8 @@ export default async function validateJSON(json, schemaUri, schemajson) {
 					errors.push("");
 				}
 			}
-			document.querySelector("#textarea3").value = errors;
+			*/
+			document.querySelector("#textarea3").value = JSON.stringify(response.errors[e], null, 2);
 		}
 	})
 	.catch(error => {
