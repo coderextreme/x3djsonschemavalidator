@@ -4,42 +4,50 @@
     <title>JSON Schema validator</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+textarea { width: 100%; height: 33%; }
+</style>
 </head>
 <body>
 	<textarea id="textarea1">
 	</textarea>
 	<textarea id="textarea2">
 	</textarea>
+	<textarea id="textarea3">
+	</textarea>
 	<script type="importmap">
 		{
 		  "imports": {
 		    "@hyperjump/json-schema/": "https://esm.sh/@hyperjump/json-schema@1.12.1/",
 		    "@hyperjump/browser/":     "https://esm.sh/@hyperjump/browser@1.0.3/"
+		    "@hyperjump/json-schema/experimental": "https://esm.sh/@hyperjump/json-schema/experimental/",
 		  }
 		}
 	</script>
     <script type="module" defer>
 import selectObjectFromJson from './selectObjectFromJson.js';
 import { registerSchema, validate } from "@hyperjump/json-schema/draft-2020-12";
+import { BASIC } from "@hyperjump/json-schema/experimental";
 
 export default async function validateJSON(json, schemaUri, schemajson) {
     registerSchema(schemajson, schemaUri);
     console.log("Schema 4.1 registered");
-    await validate(schemaUri, json)
+    await validate(schemaUri, json, BASIC)
 	.then(response => {
 		if (response.valid) {
 			alert("Success validating JSON");
 		} else {
 			alert("Error invalid JSON ");
+			let errors = [];
 			for (let e in response.errors) {
 				let error = response.errors[e];
 				if (!error.keyword.endsWith("validate")) {
-					console.log("keyword:", error.keyword.substr(error.keyword.lastIndexOf("/")+1));
+					errors.push("keyword:", error.keyword.substr(error.keyword.lastIndexOf("/")+1));
 					////////////////////////////////////////////////////////
 					let schemaPath = error.absoluteKeywordLocation.substr(error.absoluteKeywordLocation.lastIndexOf("#")+2).replaceAll("/", " > ");
-					console.log("schema location:", schemaPath);
+					errors.push("schema location:", schemaPath);
 					let schemaSelectedObject = selectObjectFromJson(schemajson, schemaPath);
-					console.log( "schema value:", JSON.stringify(schemaSelectedObject,
+					errors.push( "schema value:", JSON.stringify(schemaSelectedObject,
 						function(k, v) {
 						    let v2 = JSON.parse(JSON.stringify(v));
 						    if (typeof v2 === 'object') {
@@ -56,10 +64,10 @@ export default async function validateJSON(json, schemaUri, schemajson) {
 
 					////////////////////////////////////////////////////////
 					let instancePath = error.instanceLocation.substr(error.instanceLocation.lastIndexOf("#")+2).replaceAll("/", " > ");
-					console.log("instance location:", instancePath)
+					errors.push("instance location:", instancePath)
 					let instanceSelectedObject = selectObjectFromJson(json, instancePath);
-					console.log("instancd value:", JSON.stringify(instanceSelectedObject));
-					console.log( "instance shorthand value:", JSON.stringify(instanceSelectedObject,
+					errors.push("instancd value:", JSON.stringify(instanceSelectedObject));
+					errors.push( "instance shorthand value:", JSON.stringify(instanceSelectedObject,
 						function(k, v) {
 						    let v2 = JSON.parse(JSON.stringify(v));
 						    if (typeof v2 === 'object') {
@@ -71,9 +79,10 @@ export default async function validateJSON(json, schemaUri, schemajson) {
 						    }
 						    return v2;
 						}));
-					console.log();
+					errors.push("");
 				}
 			}
+			document.querySelector("#textarea3").value = errors;
 		}
 	})
 	.catch(error => {

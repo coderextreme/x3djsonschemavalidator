@@ -8,8 +8,8 @@
 <body>
 <script type="text/javascript">
 function openAndFill(link) {
-  	console.log("Opening");
-	const win = window.open('https://coderextreme.net/x3djsonschemavalidator/schemavalidator.html',  'JsonSchemaValidator');
+  console.log("Opening");
+  const win = window.open('https://coderextreme.net/x3djsonschemavalidator/schemavalidator.html',  'JsonSchemaValidator');
   window.addEventListener('message', (event) => {
     console.log("Adding event listener", event.origin);
     if (event.origin !== 'https://coderextreme.net') return;
@@ -42,5 +42,6 @@ function openAndFill(link) {
 <button onclick="openAndFill('HAnimPoseExample.x3dj'); return false;">HAnimPoseExample.x3dj</button>
 <button onclick="openAndFill('HalloweenPumpkinLanternKnight.x3dj'); return false;">HalloweenPumpkinLanternKnight.x3dj</button>
 <button onclick="openAndFill('SheenCloth.x3dj'); return false;">SheenCloth.x3dj</button>
+<button onclick="openAndFill('BadBadJohnCarlson.x3dj'); return false;">BadBadJohnCarlson.x3dj</button>
 </body>
 </html>
