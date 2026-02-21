@@ -1,0 +1,27 @@
+{
+  "name": "x3djsonschemavalidator",
+  "author": "John Carlson, Yottzumm, coderextreme",
+  "license": "Apache License, Version 2.0, January 2004",
+  "version": "1.0.0",
+  "main": "x3dvalidate",
+  "description": "X3D JSON Schema validation tool, uses HyperJump",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderextreme/x3djsonschemavalidator.git"
+  },
+  "keywords": [
+    "JSON",
+    ".x3dj",
+    ".json",
+    "Schema",
+    "Validator",
+    "X3D"
+  ],
+  "dependencies": {
+    "@hyperjump/json-schema": "^1.17.4"
+  },
+  "bugs": {
+    "url": "https://github.com/coderextreme/x3djsonschemavalidator/issues"
+  },
+  "homepage": "https://coderextreme.github.io/x3djsonschemavalidator/index.html"
+}
