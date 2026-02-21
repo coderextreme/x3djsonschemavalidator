@@ -4,16 +4,22 @@
     <title>JSON Schema validator</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script type="text/typescript">
+</head>
+<body>
+	<textarea id="textarea1">
+	</textarea>
+	<textarea id="textarea2">
+	</textarea>
+    <script type="text/javascript" defer>
 window.name = "JsonSchemaValidator";
-window.onload = function() {
-  console.log("loading");
-  if (window.opener) {
-    console.log("sending to opener");
-    window.opener.postMessage('ready', 'https://coderextreme.github.io');
-    console.log("done posting");
-  }
-});
+console.log("loading");
+if (window.opener) {
+	console.log("sending to opener");
+	window.opener.postMessage('ready', 'https://coderextreme.github.io');
+	console.log("done posting");
+}
+
+console.log("adding event listener");
 
 window.addEventListener('message', (event) => {
   console.log("confirming origin");
@@ -38,12 +44,7 @@ window.addEventListener('message', (event) => {
   }
   console.log("done adding event listener");
 });
+console.log("done adding listeners");
     </script>
-</head>
-<body>
-	<textarea id="textarea1">
-	</textarea>
-	<textarea id="textarea2">
-	</textarea>
 </body>
 </html>
