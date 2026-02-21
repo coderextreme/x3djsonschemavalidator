@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script type="module">
 function openAndFill() {
-  alert('Opening a popup');
   const win = window.open('https://coderextreme.net/X3DJSONLD/src/main/html/schemavalidator.html', '_blank');
   window.addEventListener('message', (event) => {
     if (event.origin !== 'https://coderextreme.net') return;
