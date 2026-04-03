@@ -18,7 +18,7 @@
     "X3D"
   ],
   "dependencies": {
-    "@hyperjump/json-schema": "^1.17.4"
+    "@hyperjump/json-schema": "1.17.4"
   },
   "bugs": {
     "url": "https://github.com/coderextreme/x3djsonschemavalidator/issues"
